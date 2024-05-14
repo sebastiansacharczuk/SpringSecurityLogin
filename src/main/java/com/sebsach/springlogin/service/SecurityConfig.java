@@ -2,6 +2,7 @@ package com.sebsach.springlogin.service;
 
 //import com.sebsach.springlogin.jwt.AuthEntryPointJwt;
 //import com.sebsach.springlogin.jwt.AuthTokenFilter;
+import com.sebsach.springlogin.jwt.AuthTokenFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -45,11 +46,11 @@ public class SecurityConfig{
     public AuthenticationManager authenticationManager(AuthenticationConfiguration builder) throws Exception {
         return builder.getAuthenticationManager();
     }
-//
-//    @Bean
-//    public AuthTokenFilter authenticateJwtTokenFilter() {
-//        return new AuthTokenFilter();
-//    }
+
+    @Bean
+    public AuthTokenFilter authenticateJwtTokenFilter() {
+        return new AuthTokenFilter();
+    }
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -73,24 +74,8 @@ public class SecurityConfig{
 //        http.exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler));
 //        http.headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin));
 //        http.csrf(AbstractHttpConfigurer::disable);
-//        http.addFilterBefore(authenticateJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(authenticateJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 
-//    @Bean
-//    public UserDetailsService userDetailsService() {
-//        UserDetails user1 = User.withUsername("user1")
-//                .password(passwordEncoder().encode("userPass1"))
-//                .roles("USER")
-//                .build();
-//        UserDetails admin1 = User.withUsername("admin1")
-//                .password(passwordEncoder().encode("adminPass1"))
-//                .roles("ADMIN")
-//                .build();
-////        return new InMemoryUserDetailsManager(user1,admin1);
-//        JdbcUserDetailsManager userDetailsManager = new JdbcUserDetailsManager(dataSource);
-////        userDetailsManager.createUser(user1);
-////        userDetailsManager.createUser(admin1);
-//        return userDetailsManager;
-//    }
 }
