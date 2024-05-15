@@ -2,6 +2,7 @@ package com.sebsach.springlogin.service;
 
 //import com.sebsach.springlogin.jwt.AuthEntryPointJwt;
 //import com.sebsach.springlogin.jwt.AuthTokenFilter;
+import com.sebsach.springlogin.controller.CustomLoginSuccessHandler;
 import com.sebsach.springlogin.jwt.AuthTokenFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,11 +62,12 @@ public class SecurityConfig{
         http
                 .authorizeRequests(auth -> auth
                         .requestMatchers("/login", "register").permitAll()
+                        .requestMatchers("admin/**").hasAnyAuthority("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .defaultSuccessUrl("/home", true)
+                        .successHandler(new CustomLoginSuccessHandler())
                         .permitAll()
                 )
                 .logout(LogoutConfigurer::permitAll);

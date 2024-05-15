@@ -8,9 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 public class AdminController {
 
-    @PreAuthorize("hasRole('ADMIN')")
-    @GetMapping("/admin")
+    @GetMapping("/admin/adminpanel")
     public String adminEndpoint() {
-        return "hello, admin!";
+        return "adminpanel";
     }
 }

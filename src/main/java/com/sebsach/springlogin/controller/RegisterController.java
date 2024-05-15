@@ -19,6 +19,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.HashMap;
 import java.util.List;
@@ -38,20 +39,35 @@ public class RegisterController {
     }
 
     @PostMapping("/register")
-    public String registerUser(@ModelAttribute("user") User user,
-                               @RequestParam("confirmPassword") String confirmPassword,
-                               Model model) {
-        if (!user.getPassword().equals(confirmPassword)) {
-            model.addAttribute("errorMessage", "Passwords do not match.");
-            return "register";
-        }
+    public String registerUser(@ModelAttribute("user") User user, Model model, RedirectAttributes redirectAttributes) {
 
-        try {
-            userService.registerUser(user);
+        String result = userService.registerUser(user);
+        model.addAttribute("message", result);
+        redirectAttributes.addAttribute("message", result);
+        if (result.equals("success")) {
             return "redirect:/login";
-        } catch (Exception e) {
-            model.addAttribute("errorMessage", "An error occurred: " + e.getMessage());
-            return "register";
         }
+        return "register";
     }
+
+
+//    @PostMapping("/register")
+//    public String registerUser(
+//            @ModelAttribute("user") User user,
+//            @RequestParam("confirmPassword") String confirmPassword,
+//            Model model
+//    ) {
+//        if (!user.getPassword().equals(confirmPassword)) {
+//            model.addAttribute("errorMessage", "Passwords do not match.");
+//            return "register";
+//        }
+//
+//        try {
+//            userService.registerUser(user);
+//            return "redirect:/login";
+//        } catch (Exception e) {
+//            model.addAttribute("errorMessage", "An error occurred: " + e.getMessage());
+//            return "register";
+//        }
+//    }
 }
