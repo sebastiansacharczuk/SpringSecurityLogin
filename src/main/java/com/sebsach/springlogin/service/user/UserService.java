@@ -1,4 +1,4 @@
-package com.sebsach.springlogin.service;
+package com.sebsach.springlogin.service.user;
 
 import com.sebsach.springlogin.model.Role;
 import com.sebsach.springlogin.model.User;
@@ -6,7 +6,6 @@ import com.sebsach.springlogin.repository.RoleRepository;
 import com.sebsach.springlogin.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

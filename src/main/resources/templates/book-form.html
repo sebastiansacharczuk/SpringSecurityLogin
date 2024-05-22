@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <form method="post">
+        <label for="title">Tytuł:</label>
+        <input type="text" placeholder="Tytuł" class="input-field" th:field="*{book.title}" id="title"/>
+
+        <label for="author">Autor:</label>
+        <input type="text" placeholder="Autor" class="input-field" th:field="*{book.author}" id="author"/>
+
+        <label for="price">Cena:</label>
+        <input type="text" placeholder="Cena" class="input-field" th:field="*{book.price}" id="price"/>
+
+        <label for="quantity">Ilość:</label>
+        <input type="text" placeholder="Ilość" class="input-field" th:field="*{book.quantity}" id="quantity"/>
+
+        <input type="submit" value="Dodaj">
+    </form>
+</div>
+</body>
+</html>

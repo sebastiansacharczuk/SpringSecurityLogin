@@ -61,7 +61,7 @@ public class SecurityConfig{
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests(auth -> auth
-                        .requestMatchers("/login", "register").permitAll()
+                        .requestMatchers("/login", "/register", "/home").permitAll()
                         .requestMatchers("admin/**").hasAnyAuthority("ADMIN")
                         .anyRequest().authenticated()
                 )
@@ -75,7 +75,7 @@ public class SecurityConfig{
 //        http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 //        http.exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler));
 //        http.headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin));
-//        http.csrf(AbstractHttpConfigurer::disable);
+        http.csrf(AbstractHttpConfigurer::disable);
         http.addFilterBefore(authenticateJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }

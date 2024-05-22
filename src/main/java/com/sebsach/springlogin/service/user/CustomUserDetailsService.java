@@ -1,4 +1,4 @@
-package com.sebsach.springlogin.service;
+package com.sebsach.springlogin.service.user;
 
 import com.sebsach.springlogin.model.Role;
 import com.sebsach.springlogin.model.User;
