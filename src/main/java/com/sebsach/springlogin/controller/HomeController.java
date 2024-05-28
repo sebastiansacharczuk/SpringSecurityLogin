@@ -20,7 +20,7 @@ public class HomeController {
 //    public String homeEndpoint() {
 //        return "home";
 //    }
-    @RequestMapping(path = "/home", method = RequestMethod.GET)
+    @RequestMapping(path = {"/","/home"}, method = RequestMethod.GET)
     public String catalog(Model model) {
         model.addAttribute("books", this.bookService.getAll());
         return "home";
