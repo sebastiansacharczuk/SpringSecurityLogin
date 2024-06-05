@@ -1,6 +1,6 @@
 package com.sebsach.springlogin.service.user;
 
-import com.sebsach.springlogin.model.Cart;
+import com.sebsach.springlogin.model.cart.Cart;
 import com.sebsach.springlogin.model.Role;
 import com.sebsach.springlogin.model.User;
 import com.sebsach.springlogin.repository.RoleRepository;

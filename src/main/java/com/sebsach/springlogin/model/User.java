@@ -1,12 +1,11 @@
 package com.sebsach.springlogin.model;
 
+import com.sebsach.springlogin.model.cart.Cart;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import org.antlr.v4.runtime.misc.NotNull;
 
 
 import java.util.HashSet;
-import java.util.Locale;
 import java.util.Set;
 
 @Entity

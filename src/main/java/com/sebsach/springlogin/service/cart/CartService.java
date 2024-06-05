@@ -2,7 +2,7 @@ package com.sebsach.springlogin.service.cart;
 
 import com.sebsach.springlogin.dao.IBookDAO;
 import com.sebsach.springlogin.model.Book;
-import com.sebsach.springlogin.model.Cart;
+import com.sebsach.springlogin.model.cart.Cart;
 import com.sebsach.springlogin.model.User;
 import com.sebsach.springlogin.repository.CartRepository;
 import com.sebsach.springlogin.service.user.UserService;

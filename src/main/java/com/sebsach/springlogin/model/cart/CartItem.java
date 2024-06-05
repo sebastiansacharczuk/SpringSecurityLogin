@@ -1,5 +1,6 @@
-package com.sebsach.springlogin.model;
+package com.sebsach.springlogin.model.cart;
 
+import com.sebsach.springlogin.model.Book;
 import jakarta.persistence.*;
 
 @Entity

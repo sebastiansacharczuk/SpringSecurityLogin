@@ -1,6 +1,5 @@
 package com.sebsach.springlogin.controller;
 
-import com.sebsach.springlogin.model.Cart;
 import com.sebsach.springlogin.service.cart.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

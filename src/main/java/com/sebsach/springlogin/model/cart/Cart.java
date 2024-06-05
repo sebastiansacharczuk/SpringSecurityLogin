@@ -1,5 +1,8 @@
-package com.sebsach.springlogin.model;
+package com.sebsach.springlogin.model.cart;
 
+import com.sebsach.springlogin.model.Book;
+import com.sebsach.springlogin.model.User;
+import com.sebsach.springlogin.model.cart.CartItem;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
